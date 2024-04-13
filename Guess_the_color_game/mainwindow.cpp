@@ -1,5 +1,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include "startwindow.h"
 #include <QMessageBox>
 
 MainWindow::MainWindow(QWidget *parent)
@@ -15,7 +16,20 @@ MainWindow::MainWindow(QWidget *parent)
 
     connect(ui->pushButton, &QPushButton::clicked, this, &MainWindow::checkGuess);
 
+    disconnect(ui->pushButton_2, &QPushButton::clicked, nullptr, nullptr);
+    connect(ui->pushButton_2, &QPushButton::clicked, this, &MainWindow::on_pushButton_2_clicked);
+
     updateSquareColor();
+}
+
+void MainWindow::on_pushButton_2_clicked()
+{
+    // Close the current window (MainWindow)
+    this->close();
+
+    // Open the start window
+    StartWindow *startWindow = new StartWindow;
+    startWindow->show();
 }
 
 void MainWindow::updateSquareColor() {

@@ -1,4 +1,4 @@
-#ifndef COLOR_GUESS_GAME_H
+/*#ifndef COLOR_GUESS_GAME_H
 #define COLOR_GUESS_GAME_H
 
 #include <QObject>
@@ -23,4 +23,5 @@ private:
     QColor m_initialColor;
 };
 
-#endif
+#endif // COLOR_GUESS_GAME_H
+*/

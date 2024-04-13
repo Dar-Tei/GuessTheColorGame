@@ -1,4 +1,4 @@
-#include "ColorSquare.h"
+/*#include "ColorSquare.h"
 #include <QPainter>
 
 ColorSquare::ColorSquare(QWidget *parent) : QWidget(parent) {
@@ -22,3 +22,4 @@ void ColorSquare::paintEvent(QPaintEvent *) {
     QPainter painter(this);
     painter.fillRect(rect(), m_color);
 }
+*/

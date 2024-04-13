@@ -17,5 +17,4 @@ private:
     QVector<QColor> m_colors;
 };
 
-#endif 
-
+#endif // COLORDATA_H

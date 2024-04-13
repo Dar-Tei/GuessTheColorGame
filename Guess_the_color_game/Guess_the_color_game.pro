@@ -10,19 +10,23 @@ CONFIG += c++17
 
 SOURCES += \
     colordata.cpp \
-    colorguessgame.cpp \
     colorsquare.cpp \
+    currentresult.cpp \
     main.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    startwindow.cpp
 
 HEADERS += \
     colordata.h \
-    colorguessgame.h \
     colorsquare.h \
-    mainwindow.h
+    currentresult.h \
+    mainwindow.h \
+    startwindow.h
 
 FORMS += \
-    mainwindow.ui
+    currentresult.ui \
+    mainwindow.ui \
+    startwindow.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

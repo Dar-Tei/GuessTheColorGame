@@ -1,4 +1,4 @@
-#include "ColorGuessGame.h"
+/*#include "ColorGuessGame.h"
 #include <QRandomGenerator>
 
 ColorGuessGame::ColorGuessGame(QObject *parent) : QObject(parent) {
@@ -20,3 +20,4 @@ void ColorGuessGame::generateColor() {
 
     emit colorChanged(randomColor);
 }
+*/

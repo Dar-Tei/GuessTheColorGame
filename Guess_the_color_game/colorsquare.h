@@ -1,4 +1,4 @@
-#ifndef COLOR_SQUARE_H
+/*#ifndef COLOR_SQUARE_H
 #define COLOR_SQUARE_H
 
 #include <QWidget>
@@ -22,4 +22,4 @@ private:
     QColor m_color;
 };
 
-#endif // COLOR_SQUARE_H
+#endif // COLOR_SQUARE_H*/
