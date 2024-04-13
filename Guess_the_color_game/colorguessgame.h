@@ -23,4 +23,4 @@ private:
     QColor m_initialColor;
 };
 
-#endif // COLOR_GUESS_GAME_H
+#endif
