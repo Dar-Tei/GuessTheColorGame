@@ -11,6 +11,7 @@ MainWindow::MainWindow(QWidget *parent)
     connect(ui->pushButton, &QPushButton::clicked, this, &MainWindow::startGame);
     QPixmap pixmap("../Guess_the_color_game/images/Guess the color.png");
     ui->label->setPixmap(pixmap);
+    ui->pushButton->setCursor(Qt::PointingHandCursor);
 }
 
 MainWindow::~MainWindow()
@@ -20,7 +21,6 @@ MainWindow::~MainWindow()
 
 void MainWindow::startGame()
 {
-    // Open the game window
     GameWindow *gameWindow = new GameWindow;
     gameWindow->show();
     this->close();

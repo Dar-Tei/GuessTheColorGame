@@ -1,6 +1,7 @@
 #include "gamewindow.h"
 #include "ui_gamewindow.h"
 #include "mainwindow.h"
+#include "currentresultwindow.h"
 #include <QMessageBox>
 
 GameWindow::GameWindow(QWidget *parent)
@@ -60,8 +61,18 @@ void GameWindow::checkGuess() {
         resultMessage = "Спробуй ще раз.";
     }
 
-    QMessageBox::information(this, "Result", resultMessage);
+    // Create an instance of CurrentResultWindow
+    CurrentResultWindow *resultWindow = new CurrentResultWindow;
 
+    // Set the necessary data
+    resultWindow->setReferenceColor(selectedColor);
+    resultWindow->setUserColor(QColor(userRed, userGreen, userBlue));
+    resultWindow->setResultMessage(resultMessage);
+
+    // Show the window
+    resultWindow->show();
+
+    // Update the square color for the next guess
     updateSquareColor();
 }
 

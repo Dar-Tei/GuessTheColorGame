@@ -10,19 +10,19 @@ CONFIG += c++17
 
 SOURCES += \
     colordata.cpp \
-    currentresult.cpp \
+    currentresultwindow.cpp \
     gamewindow.cpp \
     main.cpp \
     mainwindow.cpp
 
 HEADERS += \
     colordata.h \
-    currentresult.h \
+    currentresultwindow.h \
     gamewindow.h \
     mainwindow.h
 
 FORMS += \
-    currentresult.ui \
+    currentresultwindow.ui \
     gamewindow.ui \
     mainwindow.ui
 
