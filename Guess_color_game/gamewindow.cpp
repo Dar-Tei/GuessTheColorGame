@@ -10,7 +10,7 @@ GameWindow::GameWindow(QWidget *parent)
 {
     ui->setupUi(this);
 
-    if (!m_colorData.loadColorsFromJson("../Guess_the_color_game/colors.json")) {
+    if (!m_colorData.loadColorsFromJson("../Guess_color_game/colors.json")) {
         QMessageBox::critical(this, "Error", "Failed to load colors from JSON file.");
         return;
     }
@@ -79,7 +79,6 @@ void GameWindow::checkGuess() {
 double GameWindow::colorDistance(int r1, int g1, int b1, int r2, int g2, int b2) {
     return sqrt(pow(r2 - r1, 2) + pow(g2 - g1, 2) + pow(b2 - b1, 2));
 }
-
 
 GameWindow::~GameWindow()
 {

@@ -13,13 +13,19 @@ SOURCES += \
     currentresultwindow.cpp \
     gamewindow.cpp \
     main.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    square.cpp \
+    squarereferencecolor.cpp \
+    squareusercolor.cpp
 
 HEADERS += \
     colordata.h \
     currentresultwindow.h \
     gamewindow.h \
-    mainwindow.h
+    mainwindow.h \
+    square.h \
+    squarereferencecolor.h \
+    squareusercolor.h
 
 FORMS += \
     currentresultwindow.ui \
@@ -30,3 +36,6 @@ FORMS += \
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+DISTFILES += \
+    colors.json
