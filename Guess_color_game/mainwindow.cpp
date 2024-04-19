@@ -9,7 +9,7 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
     connect(ui->pushButton, &QPushButton::clicked, this, &MainWindow::startGame);
-    QPixmap pixmap("../Guess_the_color_game/images/Guess the color.png");
+    QPixmap pixmap("../Guess_color_game/images/Guess the color.png");
     ui->label->setPixmap(pixmap);
     ui->pushButton->setCursor(Qt::PointingHandCursor);
 }

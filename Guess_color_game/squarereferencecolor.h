@@ -1,14 +1,12 @@
-#ifndef SQUAREREFERENCECOLOR_H
-#define SQUAREREFERENCECOLOR_H
+// #ifndef SQUAREREFERENCECOLOR_H
+// #define SQUAREREFERENCECOLOR_H
 
-#include "qcolor.h"
-#include "square.h"
+// #include "Square.h"
 
-class SquareReferenceColor : public Square {
-public:
-    void GetColorSquare() override;
-private:
-    QVector<QColor> m_colors;
-};
+// class SquareReferenceColor : public Square {
+// public:
+//     void GetColorSquare() override;
+//     void SetColorSquare(QString referenceColor) override;
+// };
 
-#endif
+// #endif

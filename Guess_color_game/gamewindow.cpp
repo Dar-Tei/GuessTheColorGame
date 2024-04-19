@@ -25,10 +25,8 @@ GameWindow::GameWindow(QWidget *parent)
 
 void GameWindow::on_pushButton_2_clicked()
 {
-    // Close the current window (GameWindow)
-    this->close();
 
-    // Open the main window
+    this->close();
     MainWindow *mainWindow = new MainWindow;
     mainWindow->show();
 }
@@ -61,18 +59,14 @@ void GameWindow::checkGuess() {
         resultMessage = "Спробуй ще раз.";
     }
 
-    // Create an instance of CurrentResultWindow
     CurrentResultWindow *resultWindow = new CurrentResultWindow;
 
-    // Set the necessary data
     resultWindow->setReferenceColor(selectedColor);
     resultWindow->setUserColor(QColor(userRed, userGreen, userBlue));
     resultWindow->setResultMessage(resultMessage);
 
-    // Show the window
     resultWindow->show();
 
-    // Update the square color for the next guess
     updateSquareColor();
 }
 

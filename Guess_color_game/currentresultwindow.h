@@ -28,4 +28,4 @@ private:
     QColor userColor;
 };
 
-#endif // CURRENTRESULTWINDOW_H
+#endif

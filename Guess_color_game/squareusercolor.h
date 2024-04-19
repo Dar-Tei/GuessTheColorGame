@@ -1,10 +1,12 @@
 // #ifndef SQUAREUSERCOLOR_H
 // #define SQUAREUSERCOLOR_H
-// #include "square.h"
+
+// #include "Square.h"
+
 // class SquareUserColor : public Square {
 // public:
-//     void GetColorSquare(int userInputR, int userInputG, int userInputB);
-//     void SetColorSquare(int userInputR, int userInputG, int userInputB);
+//     void GetColorSquare() override;
+//     void SetColorSquare(QString userColor) override;
 // };
 
-// #endif // SQUAREUSERCOLOR_H
+// #endif

@@ -27,4 +27,4 @@ private:
     ColorData m_colorData;
 };
 
-#endif // GAMEWINDOW_H
+#endif
