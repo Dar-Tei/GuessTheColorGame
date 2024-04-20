@@ -1,20 +1,21 @@
+
 #ifndef COLORDATA_H
 #define COLORDATA_H
 
-#include <QVector>
 #include <QColor>
-#include <QString>
+#include <QStringList>
 
 class ColorData
 {
 public:
     ColorData();
-
     bool loadColorsFromJson(const QString &filename);
     QColor getRandomColor() const;
+    QString getColorName(const QColor &color) const;
 
 private:
-    QVector<QColor> m_colors;
+    QList<QColor> m_colors;
+    QStringList m_colorNames; // Add this line
 };
 
-#endif
+#endif // COLORDATA_H

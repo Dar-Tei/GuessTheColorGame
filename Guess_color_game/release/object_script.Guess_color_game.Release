@@ -1,0 +1,17 @@
+release/addcolorwindow.o
+release/colordata.o
+release/currentresultwindow.o
+release/gamewindow.o
+release/main.o
+release/mainwindow.o
+release/playermanager.o
+release/square.o
+release/squarereferencecolor.o
+release/squareusercolor.o
+release/usersscorewindow.o
+release/moc_addcolorwindow.o
+release/moc_currentresultwindow.o
+release/moc_gamewindow.o
+release/moc_mainwindow.o
+release/moc_playermanager.o
+release/moc_usersscorewindow.o

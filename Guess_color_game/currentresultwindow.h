@@ -2,6 +2,7 @@
 #define CURRENTRESULTWINDOW_H
 
 #include <QWidget>
+#include "colordata.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class CurrentResultWindow; }
@@ -26,6 +27,7 @@ private:
     Ui::CurrentResultWindow *ui;
     QColor referenceColor;
     QColor userColor;
+    ColorData colorData;
 };
 
 #endif

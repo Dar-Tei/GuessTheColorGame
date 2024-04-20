@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include "colordata.h"
+#include "playermanager.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class GameWindow; }
@@ -13,7 +14,8 @@ class GameWindow : public QMainWindow
     Q_OBJECT
 
 public:
-    GameWindow(QWidget *parent = nullptr);
+    explicit GameWindow(const QString &playerName, QWidget *parent = nullptr);
+    void setPlayerName(const QString &name);
     ~GameWindow();
 
 private slots:
@@ -25,6 +27,9 @@ private slots:
 private:
     Ui::GameWindow *ui;
     ColorData m_colorData;
+    PlayerManager m_playerManager;
+    int calculateScore(double distance);
+    QString m_playerName;
 };
 
 #endif

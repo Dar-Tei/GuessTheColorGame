@@ -1,0 +1,41 @@
+{
+    "players": [
+        {
+            "color_name": "usercolor2",
+            "name": "a",
+            "reference_color": [
+                255,
+                0,
+                255
+            ],
+            "score": "Спробуй ще раз.",
+            "user_color": [
+                255,
+                255,
+                0
+            ]
+        },
+        {
+            "name": "b",
+            "reference_color": [
+                255,
+                0,
+                0
+            ],
+            "score": "Відмінно!",
+            "user_color": [
+                255,
+                0,
+                0
+            ]
+        },
+        {
+            "name": "с",
+            "score": "Відмінно!"
+        },
+        {
+            "name": "в",
+            "score": "Відмінно!"
+        }
+    ]
+}

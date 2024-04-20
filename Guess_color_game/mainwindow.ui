@@ -23,15 +23,19 @@
    </size>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>Головне вікно</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>images/Guess the color.png</normaloff>images/Guess the color.png</iconset>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QLabel" name="label_2">
     <property name="geometry">
      <rect>
-      <x>19</x>
-      <y>340</y>
-      <width>371</width>
+      <x>10</x>
+      <y>296</y>
+      <width>391</width>
       <height>20</height>
      </rect>
     </property>
@@ -45,12 +49,15 @@
     <property name="text">
      <string>Грай та пізнавай колірний простір RGB</string>
     </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
    </widget>
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
       <x>75</x>
-      <y>30</y>
+      <y>20</y>
       <width>250</width>
       <height>250</height>
      </rect>
@@ -58,12 +65,15 @@
     <property name="text">
      <string>TextLabel</string>
     </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
    </widget>
    <widget class="QPushButton" name="pushButton">
     <property name="geometry">
      <rect>
       <x>130</x>
-      <y>380</y>
+      <y>370</y>
       <width>141</width>
       <height>61</height>
      </rect>
@@ -85,6 +95,49 @@
      <string>Почати гру!</string>
     </property>
    </widget>
+   <widget class="QLineEdit" name="lineEdit">
+    <property name="geometry">
+     <rect>
+      <x>91</x>
+      <y>338</y>
+      <width>221</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="toolTipDuration">
+     <number>-1</number>
+    </property>
+    <property name="accessibleDescription">
+     <string>1</string>
+    </property>
+    <property name="layoutDirection">
+     <enum>Qt::LeftToRight</enum>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">  background-color: rgba(31, 31, 31, 0.05);
+  border-radius: 8px;
+  color: #333333;
+  font-size: 14px;</string>
+    </property>
+    <property name="locale">
+     <locale language="Ukrainian" country="Ukraine"/>
+    </property>
+    <property name="inputMask">
+     <string/>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+    <property name="placeholderText">
+     <string>Вкажіть ім'я</string>
+    </property>
+    <property name="clearButtonEnabled">
+     <bool>false</bool>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
@@ -92,11 +145,36 @@
      <x>0</x>
      <y>0</y>
      <width>414</width>
-     <height>21</height>
+     <height>22</height>
     </rect>
    </property>
+   <property name="font">
+    <font>
+     <family>Arial</family>
+     <pointsize>12</pointsize>
+     <bold>true</bold>
+    </font>
+   </property>
+   <widget class="QMenu" name="menu">
+    <property name="title">
+     <string>☰</string>
+    </property>
+    <addaction name="action"/>
+    <addaction name="action_2"/>
+   </widget>
+   <addaction name="menu"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
+  <action name="action">
+   <property name="text">
+    <string>Додати власний колір</string>
+   </property>
+  </action>
+  <action name="action_2">
+   <property name="text">
+    <string>Попередні результати</string>
+   </property>
+  </action>
  </widget>
  <resources/>
  <connections/>

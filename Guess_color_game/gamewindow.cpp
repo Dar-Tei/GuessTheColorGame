@@ -2,19 +2,25 @@
 #include "ui_gamewindow.h"
 #include "mainwindow.h"
 #include "currentresultwindow.h"
+#include "playermanager.h"
 #include <QMessageBox>
 
-GameWindow::GameWindow(QWidget *parent)
+void GameWindow::setPlayerName(const QString &name) {
+    m_playerName = name;
+}
+
+GameWindow::GameWindow(const QString &playerName, QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::GameWindow)
+    , m_playerName(playerName)
 {
     ui->setupUi(this);
-
-    if (!m_colorData.loadColorsFromJson("../Guess_color_game/colors.json")) {
+    if (!m_colorData.loadColorsFromJson("../Guess_color_game/colors/colors.json")) {
         QMessageBox::critical(this, "Error", "Failed to load colors from JSON file.");
         return;
     }
 
+    setPlayerName(m_playerName);
     connect(ui->pushButton, &QPushButton::clicked, this, &GameWindow::checkGuess);
 
     disconnect(ui->pushButton_2, &QPushButton::clicked, nullptr, nullptr);
@@ -25,17 +31,16 @@ GameWindow::GameWindow(QWidget *parent)
 
 void GameWindow::on_pushButton_2_clicked()
 {
-
     this->close();
-    MainWindow *mainWindow = new MainWindow;
-    mainWindow->show();
+    parentWidget()->setEnabled(true);
 }
 
 void GameWindow::updateSquareColor() {
-
     QColor selectedColor = m_colorData.getRandomColor();
-    ui->frame->setStyleSheet(QString("background-color: %1").arg(selectedColor.name()));
+    ui->frame->setStyleSheet(QString("background-color: %1; border-radius: 8px;").arg(selectedColor.name()));
 }
+
+
 
 void GameWindow::checkGuess() {
     int userRed = ui->spinBox->value();
@@ -59,6 +64,13 @@ void GameWindow::checkGuess() {
         resultMessage = "Спробуй ще раз.";
     }
 
+    QColor referenceColor = ui->frame->palette().color(QPalette::Window);
+    QColor userColor(userRed, userGreen, userBlue);
+
+    QString colorName = m_colorData.getColorName(selectedColor); // Retrieve color name
+
+    m_playerManager.updatePlayerScore(m_playerName, resultMessage, referenceColor, userColor, colorName);
+
     CurrentResultWindow *resultWindow = new CurrentResultWindow;
 
     resultWindow->setReferenceColor(selectedColor);
@@ -69,6 +81,8 @@ void GameWindow::checkGuess() {
 
     updateSquareColor();
 }
+
+
 
 double GameWindow::colorDistance(int r1, int g1, int b1, int r2, int g2, int b2) {
     return sqrt(pow(r2 - r1, 2) + pow(g2 - g1, 2) + pow(b2 - b1, 2));

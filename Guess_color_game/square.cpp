@@ -1,13 +1,7 @@
+// // Square.cpp
 // #include "Square.h"
 
-// void Square::GetSizeSquare(int size) {
-//     squareSize = size;
-// }
+// Square::Square(QObject *parent) : QObject(parent) {}
 
-// void Square::SetSizeSquare(int size) {
-//     squareSize = size;
-// }
+// Square::~Square() {}
 
-// QString Square::getColor() const {
-//     return squareColor;
-// }

@@ -1,20 +1,24 @@
-// square.h
+// // Square.h
+// #ifndef SQUARE_H
+// #define SQUARE_H
 
-#ifndef SQUARE_H
-#define SQUARE_H
+// #include <QObject>
+// #include <QColor>
+// #include "ColorData.h"
 
-#include <string>
+// class Square : public QObject
+// {
+//     Q_OBJECT
+// public:
+//     explicit Square(QObject *parent = nullptr);
+//     virtual ~Square();
+//     virtual void GetColorSquare(int &r, int &g, int &b) const = 0;
+//     virtual void GetSizeSquare(int &size) const = 0;
+//     virtual void SetColorSquare(int r, int g, int b) = 0;
+//     virtual void SetSizeSquare(int size) = 0;
+// signals:
 
-class Square {
-protected:
-    int squareSize;
-    std::string squareColor;
+// public slots:
+// };
 
-public:
-    virtual void GetColorSquare() = 0;
-    void GetSizeSquare(int size);
-    void SetColorSquare(int r, int g, int b);
-    void SetSizeSquare(int size);
-};
-
-#endif // SQUARE_H
+// #endif // SQUARE_H

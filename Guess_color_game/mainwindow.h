@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include "playermanager.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -17,9 +18,12 @@ public:
 
 private slots:
     void startGame();
+    void showUsersScoreWindow();
+    void showAddColorWindow();
 
 private:
     Ui::MainWindow *ui;
+    PlayerManager m_playerManager;
 };
 
 #endif
