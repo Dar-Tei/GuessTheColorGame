@@ -59,6 +59,6 @@ QString ColorData::getColorName(const QColor &color) const
     if (index != -1 && index < m_colorNames.size()) {
         return m_colorNames[index];
     } else {
-        return QString(); // Return empty string if color is not found
+        return QString();
     }
 }

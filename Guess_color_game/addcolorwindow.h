@@ -19,4 +19,4 @@ private:
     Ui::AddColorWindow *ui;
 };
 
-#endif // ADDCOLORWINDOW_H
+#endif

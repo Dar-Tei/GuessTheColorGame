@@ -10,6 +10,7 @@
 #define UI_CURRENTRESULTWINDOW_H
 
 #include <QtCore/QVariant>
+#include <QtGui/QIcon>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QFrame>
 #include <QtWidgets/QLabel>
@@ -36,6 +37,9 @@ public:
         CurrentResultWindow->resize(628, 458);
         CurrentResultWindow->setMinimumSize(QSize(628, 458));
         CurrentResultWindow->setMaximumSize(QSize(628, 458));
+        QIcon icon;
+        icon.addFile(QString::fromUtf8("images/Guess the color.png"), QSize(), QIcon::Normal, QIcon::Off);
+        CurrentResultWindow->setWindowIcon(icon);
         label_3 = new QLabel(CurrentResultWindow);
         label_3->setObjectName("label_3");
         label_3->setGeometry(QRect(233, 360, 151, 31));
@@ -67,19 +71,21 @@ public:
         QFont font2;
         font2.setPointSize(12);
         frame_2->setFont(font2);
-        frame_2->setStyleSheet(QString::fromUtf8("border-radius: 30px;"));
+        frame_2->setStyleSheet(QString::fromUtf8("background-color: rgb(255, 255, 255);\n"
+"border-radius: 8px;"));
         frame_2->setFrameShape(QFrame::StyledPanel);
         frame_2->setFrameShadow(QFrame::Raised);
         frame = new QFrame(CurrentResultWindow);
         frame->setObjectName("frame");
         frame->setGeometry(QRect(10, 40, 281, 281));
         frame->setFont(font2);
-        frame->setStyleSheet(QString::fromUtf8("border-radius: 30px;"));
+        frame->setStyleSheet(QString::fromUtf8("background-color: rgb(255, 255, 255);\n"
+"border-radius: 8px;"));
         frame->setFrameShape(QFrame::StyledPanel);
         frame->setFrameShadow(QFrame::Raised);
         label = new QLabel(CurrentResultWindow);
         label->setObjectName("label");
-        label->setGeometry(QRect(29, 330, 241, 20));
+        label->setGeometry(QRect(9, 330, 281, 20));
         QFont font3;
         font3.setFamilies({QString::fromUtf8("Arial")});
         font3.setPointSize(12);
@@ -89,7 +95,7 @@ public:
         label->setAlignment(Qt::AlignCenter);
         label_2 = new QLabel(CurrentResultWindow);
         label_2->setObjectName("label_2");
-        label_2->setGeometry(QRect(353, 328, 241, 20));
+        label_2->setGeometry(QRect(333, 328, 281, 20));
         label_2->setFont(font3);
         label_2->setStyleSheet(QString::fromUtf8(""));
         label_2->setAlignment(Qt::AlignCenter);
@@ -101,7 +107,7 @@ public:
 
     void retranslateUi(QWidget *CurrentResultWindow)
     {
-        CurrentResultWindow->setWindowTitle(QCoreApplication::translate("CurrentResultWindow", "Form", nullptr));
+        CurrentResultWindow->setWindowTitle(QCoreApplication::translate("CurrentResultWindow", "\320\237\320\276\321\202\320\276\321\207\320\275\320\270\320\271 \321\200\320\265\320\267\321\203\320\273\321\214\321\202\320\260\321\202 \320\263\321\200\320\270", nullptr));
         label_3->setText(QString());
         pushButton->setText(QCoreApplication::translate("CurrentResultWindow", "\320\227\320\260\320\262\320\265\321\200\321\210\320\270\321\202\320\270 \320\263\321\200\321\203", nullptr));
         label_4->setText(QCoreApplication::translate("CurrentResultWindow", "\320\240\320\265\320\267\321\203\320\273\321\214\321\202\320\260\321\202\320\270 \320\263\321\200\320\270:", nullptr));

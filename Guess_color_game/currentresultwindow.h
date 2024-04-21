@@ -19,6 +19,7 @@ public:
     void setReferenceColor(const QColor &color);
     void setUserColor(const QColor &color);
     void setResultMessage(const QString &message);
+    QString getUserColorName();
 
 private slots:
     void on_pushButton_clicked();

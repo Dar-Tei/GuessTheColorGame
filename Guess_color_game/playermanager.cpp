@@ -1,5 +1,3 @@
-// playermanager.cpp
-
 #include "playermanager.h"
 #include <QFile>
 #include <QJsonDocument>
@@ -12,7 +10,7 @@ PlayerManager::PlayerManager(QObject *parent) : QObject(parent),
 
 }
 
-bool PlayerManager::addPlayer(const QString &name) { // Update the return type to bool
+bool PlayerManager::addPlayer(const QString &name) {
     QFile file(m_filePath);
     if (!file.open(QIODevice::ReadWrite | QIODevice::Text)) {
         qDebug() << "Failed to open players.json";
@@ -24,13 +22,10 @@ bool PlayerManager::addPlayer(const QString &name) { // Update the return type t
     QJsonObject root = doc.object();
 
     if (!root.contains("players") || !root["players"].isArray()) {
-        // If the "players" array does not exist, create it
         root["players"] = QJsonArray();
     }
 
     QJsonArray playersArray = root["players"].toArray();
-
-    // Check if the player with the given name already exists
     for (const QJsonValue &playerValue : playersArray) {
         QJsonObject playerObject = playerValue.toObject();
         if (playerObject["name"].toString() == name) {
@@ -39,29 +34,25 @@ bool PlayerManager::addPlayer(const QString &name) { // Update the return type t
         }
     }
 
-    // Create a new player object
+
     QJsonObject newPlayer;
     newPlayer["name"] = name;
-    newPlayer["score"] = ""; // Initialize score with an empty string
 
-    // Add the new player object to the players array
     playersArray.append(newPlayer);
 
-    // Update the root object with the modified players array
     root["players"] = playersArray;
     doc.setObject(root);
 
-    // Write the updated JSON data back to players.json
-    file.resize(0); // Clear file content
+    file.resize(0);
     file.write(doc.toJson());
     file.close();
 
-    return true; // Return true if the player is successfully added
+    return true;
 }
 
 
-void PlayerManager::updatePlayerScore(const QString &playerName, const QString &resultMessage, const QColor &referenceColor, const QColor &userColor, const QString &colorName) {
-    qDebug() << "Player name to update:" << playerName; // Debug output for playerName
+void PlayerManager::updatePlayerScore(const QString &playerName, const QColor &referenceColor, const QColor &userColor, const QString &referenceColorName, const QString &userColorName, const QString &resultMessage) {
+    qDebug() << "Player name to update:" << playerName;
 
     QFile file(m_filePath);
     if (!file.open(QIODevice::ReadWrite | QIODevice::Text)) {
@@ -81,25 +72,16 @@ void PlayerManager::updatePlayerScore(const QString &playerName, const QString &
     QJsonArray playersArray = root["players"].toArray();
     bool playerFound = false;
 
-    // Iterate through the players array to find the player with the given name
     for (QJsonValueRef playerValue : playersArray) {
         QJsonObject playerObject = playerValue.toObject();
-        QString playerNameInJson = playerObject["name"].toString().trimmed(); // Trim whitespace
+        QString playerNameInJson = playerObject["name"].toString().trimmed();
 
         qDebug() << "Comparing player names:" << playerNameInJson << playerName;
 
-        if (playerNameInJson.compare(playerName, Qt::CaseInsensitive) == 0) { // Case-insensitive comparison
+        if (playerNameInJson.compare(playerName, Qt::CaseInsensitive) == 0) {
             playerFound = true;
 
-            // Update the player's score
             playerObject["score"] = resultMessage;
-
-            // Add reference color and user color to the player's score entry as arrays of integers
-            QJsonArray referenceColorArray;
-            referenceColorArray.append(referenceColor.red());
-            referenceColorArray.append(referenceColor.green());
-            referenceColorArray.append(referenceColor.blue());
-            playerObject["reference_color"] = referenceColorArray;
 
             QJsonArray userColorArray;
             userColorArray.append(userColor.red());
@@ -107,11 +89,15 @@ void PlayerManager::updatePlayerScore(const QString &playerName, const QString &
             userColorArray.append(userColor.blue());
             playerObject["user_color"] = userColorArray;
 
-            // Add color name to the player's score entry
-            playerObject["color_name"] = colorName;
-
-            // Update the player object in the array
+            QJsonArray referenceColorArray;
+            referenceColorArray.append(referenceColor.red());
+            referenceColorArray.append(referenceColor.green());
+            referenceColorArray.append(referenceColor.blue());
+            playerObject["reference_color"] = referenceColorArray;
+            playerObject["user_color_name"] = userColorName;
+            playerObject["reference_color_name"] = referenceColorName;
             playerValue = playerObject;
+
             break;
         }
     }
@@ -121,12 +107,9 @@ void PlayerManager::updatePlayerScore(const QString &playerName, const QString &
         return;
     }
 
-    // Update the root object with the modified players array
     root["players"] = playersArray;
     doc.setObject(root);
-
-    // Write the updated JSON data back to players.json
-    file.resize(0); // Clear file content
+    file.resize(0);
     file.write(doc.toJson());
     file.close();
 }
@@ -135,51 +118,54 @@ void PlayerManager::updatePlayerScore(const QString &playerName, const QString &
 QVector<QString> PlayerManager::getPlayerScores() {
     QVector<QString> playerScores;
 
-    // Open the players_score.json file
     QFile file(m_filePath);
     if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
         qDebug() << "Failed to open players_score.json";
-        return playerScores; // Return empty vector on failure
+        return playerScores;
     }
 
-    // Read the JSON data from the file
     QByteArray jsonData = file.readAll();
-    qDebug() << "JSON Data:" << jsonData; // Print JSON data for debugging
+    qDebug() << "JSON Data:" << jsonData;
     file.close();
 
-    // Parse the JSON data
     QJsonDocument jsonDoc = QJsonDocument::fromJson(jsonData);
     if (jsonDoc.isNull() || !jsonDoc.isObject()) {
         qDebug() << "Invalid or empty JSON format in players_score.json";
-        return playerScores; // Return empty vector if JSON format is invalid
+        return playerScores;
     }
 
-    // Get the root object
     QJsonObject root = jsonDoc.object();
 
-    // Check if the "players" array exists
     if (!root.contains("players") || !root["players"].isArray()) {
         qDebug() << "No players array found in JSON data";
-        return playerScores; // Return empty vector if "players" array is missing
+        return playerScores;
     }
 
-    // Convert the "players" array to a QJsonArray
     QJsonArray playersArray = root["players"].toArray();
 
-    // Iterate through the players array and extract player names and scores
     for (const QJsonValue &playerValue : playersArray) {
         QJsonObject playerObject = playerValue.toObject();
         QString playerName = playerObject["name"].toString();
-        QString playerScore = playerObject["score"].toString();
-        QString playerInfo = QString("%1: %2").arg(playerName, playerScore);
+        QString referenceColor = getColorString(playerObject["reference_color"].toArray());
+        QString referenceColorName = playerObject["reference_color_name"].toString();
+        QString userColor = getColorString(playerObject["user_color"].toArray());
+        QString userColorName = playerObject["user_color_name"].toString();
+        QString score = playerObject["score"].toString();
+
+        QString playerInfo = QString("%1, %2, %3, %4, %5, %6, %7").arg(playerName, referenceColor, referenceColorName, userColor, userColorName, score);
         playerScores.append(playerInfo);
     }
 
     return playerScores;
 }
 
+QString PlayerManager::getColorString(const QJsonArray &colorArray) {
+    if (colorArray.size() != 3)
+        return QString();
 
+    int red = colorArray[0].toInt();
+    int green = colorArray[1].toInt();
+    int blue = colorArray[2].toInt();
 
-
-
-
+    return QString("%1 %2 %3").arg(red).arg(green).arg(blue);
+}

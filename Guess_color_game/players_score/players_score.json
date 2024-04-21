@@ -1,41 +1,100 @@
 {
     "players": [
         {
-            "color_name": "usercolor2",
-            "name": "a",
+            "name": "24.04.21 14:47:31: Alex",
             "reference_color": [
-                255,
+                0,
                 0,
                 255
             ],
-            "score": "Спробуй ще раз.",
+            "reference_color_name": "blue",
+            "score": "Відмінно!",
+            "user_color": [
+                0,
+                0,
+                255
+            ],
+            "user_color_name": "blue"
+        },
+        {
+            "name": "24.04.21 14:47:38: Alex",
+            "reference_color": [
+                255,
+                255,
+                0
+            ],
+            "reference_color_name": "usercolor3",
+            "score": "Відмінно!",
             "user_color": [
                 255,
                 255,
                 0
-            ]
+            ],
+            "user_color_name": "usercolor3"
         },
         {
-            "name": "b",
+            "name": "24.04.21 14:47:48: Alex",
+            "reference_color": [
+                0,
+                0,
+                255
+            ],
+            "reference_color_name": "blue",
+            "score": "Близько!",
+            "user_color": [
+                0,
+                20,
+                220
+            ],
+            "user_color_name": ""
+        },
+        {
+            "name": "24.04.21 14:48:11: Michail",
+            "reference_color": [
+                0,
+                255,
+                0
+            ],
+            "reference_color_name": "green",
+            "score": "Відмінно!",
+            "user_color": [
+                0,
+                255,
+                0
+            ],
+            "user_color_name": "green"
+        },
+        {
+            "name": "24.04.21 14:48:16: Michail",
+            "reference_color": [
+                0,
+                0,
+                255
+            ],
+            "reference_color_name": "blue",
+            "score": "Відмінно!",
+            "user_color": [
+                0,
+                0,
+                255
+            ],
+            "user_color_name": "blue"
+        },
+        {
+            "name": "24.04.21 14:48:21: Michail",
             "reference_color": [
                 255,
                 0,
                 0
             ],
-            "score": "Відмінно!",
+            "reference_color_name": "red",
+            "score": "Близько!",
             "user_color": [
-                255,
+                220,
                 0,
-                0
-            ]
-        },
-        {
-            "name": "с",
-            "score": "Відмінно!"
-        },
-        {
-            "name": "в",
-            "score": "Відмінно!"
+                20
+            ],
+            "user_color_name": ""
         }
     ]
 }

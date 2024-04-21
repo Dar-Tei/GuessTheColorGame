@@ -20,6 +20,7 @@ private slots:
     void startGame();
     void showUsersScoreWindow();
     void showAddColorWindow();
+    void enableUIElements();
 
 private:
     Ui::MainWindow *ui;

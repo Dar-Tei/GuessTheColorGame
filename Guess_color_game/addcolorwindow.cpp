@@ -12,6 +12,7 @@ AddColorWindow::AddColorWindow(QWidget *parent)
     ui->spinBox_2->setCursor(Qt::IBeamCursor);
     ui->spinBox_3->setCursor(Qt::IBeamCursor);
     ui->lineEdit->setCursor(Qt::IBeamCursor);
+    ui->pushButton->setCursor(Qt::PointingHandCursor);
 
 }
 

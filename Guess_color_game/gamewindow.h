@@ -24,12 +24,17 @@ private slots:
     void on_pushButton_2_clicked();
     double colorDistance(int r1, int g1, int b1, int r2, int g2, int b2);
 
+signals:
+    void closed();
+
 private:
     Ui::GameWindow *ui;
     ColorData m_colorData;
     PlayerManager m_playerManager;
     int calculateScore(double distance);
     QString m_playerName;
+protected:
+    void closeEvent(QCloseEvent *event) override;
 };
 
 #endif

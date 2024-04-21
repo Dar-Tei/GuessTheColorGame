@@ -10,6 +10,7 @@
 #define UI_GAMEWINDOW_H
 
 #include <QtCore/QVariant>
+#include <QtGui/QIcon>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QFrame>
 #include <QtWidgets/QLabel>
@@ -40,6 +41,9 @@ public:
         GameWindow->resize(421, 457);
         GameWindow->setMinimumSize(QSize(421, 457));
         GameWindow->setMaximumSize(QSize(421, 457));
+        QIcon icon;
+        icon.addFile(QString::fromUtf8("images/Guess the color.png"), QSize(), QIcon::Normal, QIcon::Off);
+        GameWindow->setWindowIcon(icon);
         pushButton_2 = new QPushButton(GameWindow);
         pushButton_2->setObjectName("pushButton_2");
         pushButton_2->setGeometry(QRect(234, 400, 141, 41));
@@ -117,7 +121,8 @@ public:
         QFont font4;
         font4.setPointSize(12);
         frame->setFont(font4);
-        frame->setStyleSheet(QString::fromUtf8("border-radius: 30px;"));
+        frame->setStyleSheet(QString::fromUtf8("background-color: rgb(255, 255, 255);\n"
+"border-radius: 8px;"));
         frame->setFrameShape(QFrame::StyledPanel);
         frame->setFrameShadow(QFrame::Raised);
         label_4 = new QLabel(GameWindow);
@@ -155,7 +160,7 @@ public:
 
     void retranslateUi(QWidget *GameWindow)
     {
-        GameWindow->setWindowTitle(QCoreApplication::translate("GameWindow", "Form", nullptr));
+        GameWindow->setWindowTitle(QCoreApplication::translate("GameWindow", "\320\223\321\200\320\260", nullptr));
         pushButton_2->setText(QCoreApplication::translate("GameWindow", "\320\257 \320\277\320\260\321\201.", nullptr));
         label_2->setText(QCoreApplication::translate("GameWindow", "R", nullptr));
         pushButton->setText(QCoreApplication::translate("GameWindow", "\320\237\320\265\321\200\320\265\320\262\321\226\321\200 \320\274\320\265\320\275\320\265!", nullptr));

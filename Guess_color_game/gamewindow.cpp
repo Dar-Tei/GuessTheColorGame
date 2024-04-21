@@ -1,6 +1,5 @@
 #include "gamewindow.h"
 #include "ui_gamewindow.h"
-#include "mainwindow.h"
 #include "currentresultwindow.h"
 #include "playermanager.h"
 #include <QMessageBox>
@@ -25,14 +24,14 @@ GameWindow::GameWindow(const QString &playerName, QWidget *parent)
 
     disconnect(ui->pushButton_2, &QPushButton::clicked, nullptr, nullptr);
     connect(ui->pushButton_2, &QPushButton::clicked, this, &GameWindow::on_pushButton_2_clicked);
-
+    ui->pushButton->setCursor(Qt::PointingHandCursor);
+    ui->pushButton_2->setCursor(Qt::PointingHandCursor);
     updateSquareColor();
 }
 
 void GameWindow::on_pushButton_2_clicked()
 {
     this->close();
-    parentWidget()->setEnabled(true);
 }
 
 void GameWindow::updateSquareColor() {
@@ -40,7 +39,11 @@ void GameWindow::updateSquareColor() {
     ui->frame->setStyleSheet(QString("background-color: %1; border-radius: 8px;").arg(selectedColor.name()));
 }
 
-
+void GameWindow::closeEvent(QCloseEvent *event)
+{
+    emit closed();
+    QMainWindow::closeEvent(event);
+}
 
 void GameWindow::checkGuess() {
     int userRed = ui->spinBox->value();
@@ -67,22 +70,21 @@ void GameWindow::checkGuess() {
     QColor referenceColor = ui->frame->palette().color(QPalette::Window);
     QColor userColor(userRed, userGreen, userBlue);
 
-    QString colorName = m_colorData.getColorName(selectedColor); // Retrieve color name
+    // Get the color names
+    QString referenceColorName = m_colorData.getColorName(selectedColor);
+    QString userColorName = m_colorData.getColorName(userColor);
 
-    m_playerManager.updatePlayerScore(m_playerName, resultMessage, referenceColor, userColor, colorName);
-
+    // Show the result window
     CurrentResultWindow *resultWindow = new CurrentResultWindow;
-
     resultWindow->setReferenceColor(selectedColor);
-    resultWindow->setUserColor(QColor(userRed, userGreen, userBlue));
+    resultWindow->setUserColor(userColor);
     resultWindow->setResultMessage(resultMessage);
-
     resultWindow->show();
 
-    updateSquareColor();
+    // Update player score
+    m_playerManager.updatePlayerScore(m_playerName, referenceColor, userColor, referenceColorName, userColorName, resultMessage);
+    this->close();
 }
-
-
 
 double GameWindow::colorDistance(int r1, int g1, int b1, int r2, int g2, int b2) {
     return sqrt(pow(r2 - r1, 2) + pow(g2 - g1, 2) + pow(b2 - b1, 2));

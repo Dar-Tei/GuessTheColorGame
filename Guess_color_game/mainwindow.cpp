@@ -1,47 +1,62 @@
+#include <QMainWindow>
+#include <QMessageBox>
+#include <QDateTime>
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "gamewindow.h"
 #include "addcolorwindow.h"
 #include "usersscorewindow.h"
-#include <QMainWindow>
-#include <QMessageBox>
 #include "playermanager.h"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
-
 {
     ui->setupUi(this);
-    connect(ui->pushButton, &QPushButton::clicked, this, &MainWindow::startGame);
+    connect(ui->mainPushButton, &QPushButton::clicked, this, &MainWindow::startGame);
     connect(ui->action, &QAction::triggered, this, &MainWindow::showAddColorWindow);
     connect(ui->action_2, &QAction::triggered, this, &MainWindow::showUsersScoreWindow);
 
     QPixmap pixmap("../Guess_color_game/images/Guess the color.png");
 
     ui->label->setPixmap(pixmap);
-    ui->pushButton->setCursor(Qt::PointingHandCursor);
-    ui->lineEdit->setCursor(Qt::IBeamCursor);
+    ui->mainPushButton->setCursor(Qt::PointingHandCursor);
+    ui->mainLineEdit->setCursor(Qt::IBeamCursor);
     ui->menu->setCursor(Qt::PointingHandCursor);
-    ui->menubar->setCursor(Qt::PointingHandCursor);
+    ui->mainMenubar->setCursor(Qt::PointingHandCursor);
 }
 
 void MainWindow::startGame()
 {
-    QString playerName = ui->lineEdit->text();
+    QString playerName = ui->mainLineEdit->text();
     if (playerName.isEmpty()) {
         QMessageBox::information(this, "Помилка", "Будь ласка, введіть ім'я гравця.");
         return;
     }
 
-    m_playerManager.addPlayer(playerName);
-    QMessageBox::information(this, "Повідомлення", QString("Ви увійшли як %1").arg(playerName));
+    playerName = QDateTime::currentDateTime().toString("yy.MM.dd hh:mm:ss") + ": " + playerName;
 
-      // Assuming lineEdit contains the player's name
+    m_playerManager.addPlayer(playerName);
+
+    // Disable UI elements
+    // ui->mainPushButton->setEnabled(false);
+    // ui->mainLineEdit->setEnabled(false);
+    // ui->mainMenubar->setEnabled(false);
+    this->setEnabled(false);
+    // Assuming lineEdit contains the player's name
     GameWindow *gameWindow = new GameWindow(playerName, this);
+
+    // Connect the custom closed signal of the GameWindow to enableUIElements() slot
+    connect(gameWindow, &GameWindow::closed, this, &MainWindow::enableUIElements);
+
     gameWindow->show();
 }
 
+void MainWindow::enableUIElements()
+{
+    // Enable UI elements when the game window is closed
+   this->setEnabled(true);
+}
 
 void MainWindow::showUsersScoreWindow()
 {
@@ -61,4 +76,5 @@ MainWindow::~MainWindow()
 {
     delete ui;
 }
+
 
