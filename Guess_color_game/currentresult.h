@@ -19,4 +19,4 @@ private:
     Ui::CurrentResult *ui;
 };
 
-#endif // CURRENTRESULT_H
+#endif 
