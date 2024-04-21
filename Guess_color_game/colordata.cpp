@@ -73,7 +73,6 @@ bool ColorData::saveColorsToJson(const QString &filename) const
     QJsonObject jsonObject;
     QJsonArray colorsArray;
 
-    // Add each color to the JSON array
     for (int i = 0; i < m_colors.size(); ++i) {
         QJsonObject colorObject;
         colorObject["red"] = m_colors[i].red();
