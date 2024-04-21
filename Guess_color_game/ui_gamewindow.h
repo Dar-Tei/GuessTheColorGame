@@ -46,7 +46,7 @@ public:
         GameWindow->setWindowIcon(icon);
         pushButton_2 = new QPushButton(GameWindow);
         pushButton_2->setObjectName("pushButton_2");
-        pushButton_2->setGeometry(QRect(234, 400, 141, 41));
+        pushButton_2->setGeometry(QRect(40, 400, 141, 41));
         QFont font;
         font.setFamilies({QString::fromUtf8("Arial")});
         font.setBold(true);
@@ -65,7 +65,7 @@ public:
         label_2->setFont(font1);
         pushButton = new QPushButton(GameWindow);
         pushButton->setObjectName("pushButton");
-        pushButton->setGeometry(QRect(44, 400, 141, 41));
+        pushButton->setGeometry(QRect(230, 400, 141, 41));
         pushButton->setFont(font);
         pushButton->setStyleSheet(QString::fromUtf8("  background-color: rgba(51, 51, 51, 0.05);\n"
 "  border-radius: 8px;\n"

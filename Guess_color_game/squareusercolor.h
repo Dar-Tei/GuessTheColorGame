@@ -1,4 +1,4 @@
-// // SquareUserColor.h
+//
 // #ifndef SQUAREUSERCOLOR_H
 // #define SQUAREUSERCOLOR_H
 
@@ -23,4 +23,4 @@
 //     int m_userInputB;
 // };
 
-// #endif // SQUAREUSERCOLOR_H
+// #endif

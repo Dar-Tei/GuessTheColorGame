@@ -23,7 +23,7 @@
    </size>
   </property>
   <property name="windowTitle">
-   <string>Головне вікно</string>
+   <string>Вгадай колір!</string>
   </property>
   <property name="windowIcon">
    <iconset>
@@ -69,7 +69,7 @@
      <set>Qt::AlignCenter</set>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton">
+   <widget class="QPushButton" name="mainPushButton">
     <property name="geometry">
      <rect>
       <x>130</x>
@@ -95,7 +95,7 @@
      <string>Почати гру!</string>
     </property>
    </widget>
-   <widget class="QLineEdit" name="lineEdit">
+   <widget class="QLineEdit" name="mainLineEdit">
     <property name="geometry">
      <rect>
       <x>91</x>
@@ -139,7 +139,7 @@
     </property>
    </widget>
   </widget>
-  <widget class="QMenuBar" name="menubar">
+  <widget class="QMenuBar" name="mainMenubar">
    <property name="geometry">
     <rect>
      <x>0</x>

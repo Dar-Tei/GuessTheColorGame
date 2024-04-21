@@ -1,4 +1,4 @@
-// // SquareReferenceColor.cpp
+//
 // #include "SquareReferenceColor.h"
 
 // SquareReferenceColor::SquareReferenceColor(QObject *parent) : Square(parent), m_size(0), m_red(0), m_green(0), m_blue(0) {}

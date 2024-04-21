@@ -70,18 +70,15 @@ void GameWindow::checkGuess() {
     QColor referenceColor = ui->frame->palette().color(QPalette::Window);
     QColor userColor(userRed, userGreen, userBlue);
 
-    // Get the color names
     QString referenceColorName = m_colorData.getColorName(selectedColor);
     QString userColorName = m_colorData.getColorName(userColor);
 
-    // Show the result window
     CurrentResultWindow *resultWindow = new CurrentResultWindow;
     resultWindow->setReferenceColor(selectedColor);
     resultWindow->setUserColor(userColor);
     resultWindow->setResultMessage(resultMessage);
     resultWindow->show();
 
-    // Update player score
     m_playerManager.updatePlayerScore(m_playerName, referenceColor, userColor, referenceColorName, userColorName, resultMessage);
     this->close();
 }

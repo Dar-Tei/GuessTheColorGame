@@ -1,4 +1,4 @@
-// // Square.cpp
+//
 // #include "Square.h"
 
 // Square::Square(QObject *parent) : QObject(parent) {}

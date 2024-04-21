@@ -39,7 +39,7 @@ void CurrentResultWindow::setResultMessage(const QString &message)
     ui->label_3->setText(message);
 }
 
-QString CurrentResultWindow::getUserColorName() // Implementation of the new method
+QString CurrentResultWindow::getUserColorName()
 {
     return colorData.getColorName(userColor);
 }

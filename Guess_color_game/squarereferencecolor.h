@@ -1,4 +1,4 @@
-// // SquareReferenceColor.h
+//
 // #ifndef SQUAREREFERENCECOLOR_H
 // #define SQUAREREFERENCECOLOR_H
 

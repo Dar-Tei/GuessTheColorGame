@@ -1,4 +1,4 @@
-// // SquareUserColor.cpp
+//
 // #include "SquareUserColor.h"
 
 // SquareUserColor::SquareUserColor(QObject *parent) : Square(parent), m_size(0), m_userInputR(0), m_userInputG(0), m_userInputB(0) {}

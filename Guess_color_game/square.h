@@ -1,4 +1,4 @@
-// // Square.h
+//
 // #ifndef SQUARE_H
 // #define SQUARE_H
 
@@ -21,4 +21,4 @@
 // public slots:
 // };
 
-// #endif // SQUARE_H
+// #endif

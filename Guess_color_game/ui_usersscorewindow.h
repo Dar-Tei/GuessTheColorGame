@@ -82,7 +82,7 @@ public:
 
     void retranslateUi(QWidget *UsersScoreWindow)
     {
-        UsersScoreWindow->setWindowTitle(QCoreApplication::translate("UsersScoreWindow", "Form", nullptr));
+        UsersScoreWindow->setWindowTitle(QCoreApplication::translate("UsersScoreWindow", "\320\240\320\265\320\267\321\203\320\273\321\214\321\202\320\260\321\202\320\270 \320\263\321\200\320\260\320\262\321\206\321\226\320\262", nullptr));
         label->setText(QCoreApplication::translate("UsersScoreWindow", "\320\237\320\276\320\277\320\265\321\200\320\265\320\264\320\275\321\226 \321\200\320\265\320\267\321\203\320\273\321\214\321\202\320\260\321\202\320\270: ", nullptr));
         pushButton->setText(QCoreApplication::translate("UsersScoreWindow", "\320\236\320\232", nullptr));
     } // retranslateUi

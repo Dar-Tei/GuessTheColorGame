@@ -38,15 +38,9 @@ void MainWindow::startGame()
 
     m_playerManager.addPlayer(playerName);
 
-    // Disable UI elements
-    // ui->mainPushButton->setEnabled(false);
-    // ui->mainLineEdit->setEnabled(false);
-    // ui->mainMenubar->setEnabled(false);
     this->setEnabled(false);
-    // Assuming lineEdit contains the player's name
     GameWindow *gameWindow = new GameWindow(playerName, this);
 
-    // Connect the custom closed signal of the GameWindow to enableUIElements() slot
     connect(gameWindow, &GameWindow::closed, this, &MainWindow::enableUIElements);
 
     gameWindow->show();
@@ -54,20 +48,20 @@ void MainWindow::startGame()
 
 void MainWindow::enableUIElements()
 {
-    // Enable UI elements when the game window is closed
+
    this->setEnabled(true);
 }
 
 void MainWindow::showUsersScoreWindow()
 {
-    // Create and show the UsersScoreWindow
+
     UsersScoreWindow *scoreWindow = new UsersScoreWindow(nullptr);
     scoreWindow->show();
 }
 
 void MainWindow::showAddColorWindow()
 {
-    // Create and show the AddColorWindow with a parent of nullptr
+
     AddColorWindow *addColorWindow = new AddColorWindow(nullptr);
     addColorWindow->show();
 }

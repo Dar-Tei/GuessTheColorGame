@@ -1,5 +1,3 @@
-// playermanager.h
-
 #ifndef PLAYERMANAGER_H
 #define PLAYERMANAGER_H
 
@@ -28,4 +26,4 @@ private:
     QString getColorString(const QJsonArray &colorArray);
 };
 
-#endif // PLAYERMANAGER_H
+#endif

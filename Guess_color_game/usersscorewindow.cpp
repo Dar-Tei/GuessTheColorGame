@@ -2,6 +2,7 @@
 #include "ui_usersscorewindow.h"
 #include "playermanager.h"
 #include <QVector>
+#include <QScrollBar>
 
 UsersScoreWindow::UsersScoreWindow(QWidget *parent) :
     QWidget(parent),
@@ -9,7 +10,23 @@ UsersScoreWindow::UsersScoreWindow(QWidget *parent) :
 {
     ui->setupUi(this);
 
-
+    ui->plainTextEdit->verticalScrollBar()->setStyleSheet(
+        "QScrollBar:vertical {"
+        "    background-color: rgba(0, 0, 0, 0.00);"
+        "    border-radius: 8px;"
+        "}"
+        "QScrollBar::handle:vertical {"
+        "    background: #666666;"
+        "    min-height: 20px;"
+        "    border-radius: 8px;"
+        "}"
+        "QScrollBar::add-line:vertical {"
+        "    background: none;"
+        "}"
+        "QScrollBar::sub-line:vertical {"
+        "    background: none;"
+        "}"
+        );
     PlayerManager playerManager;
     QVector<QString> playerScores = playerManager.getPlayerScores();
     ui->pushButton->setCursor(Qt::PointingHandCursor);
@@ -25,7 +42,7 @@ UsersScoreWindow::UsersScoreWindow(QWidget *parent) :
         QString resultMessage = scoreParts[5].trimmed();
 
 
-        QString formattedScore = QString("%1 | %2 (%3) | %4 (%5) | %6")
+        QString formattedScore = QString("\n%1:\n Еталонний колір: %2 (%3);\n Колір гравця: %4 (%5);\n Результат гри: %6")
         .arg(playerName)
         .arg(referenceColor)
         .arg(referenceColorName)
