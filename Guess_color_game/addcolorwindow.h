@@ -2,7 +2,7 @@
 #define ADDCOLORWINDOW_H
 
 #include <QWidget>
-#include "colordata.h" // Assuming colordata.h contains the declaration of ColorData class
+#include "colordata.h" 
 
 namespace Ui {
 class AddColorWindow;
@@ -23,7 +23,7 @@ private slots:
 
 private:
     Ui::AddColorWindow *ui;
-    ColorData m_colorData; // Declare m_colorData as a member variable
+    ColorData m_colorData; 
 };
 
-#endif // ADDCOLORWINDOW_H
+#endif 
