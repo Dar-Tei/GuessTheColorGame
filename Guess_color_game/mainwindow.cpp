@@ -34,7 +34,7 @@ void MainWindow::startGame()
         return;
     }
 
-    playerName = QDateTime::currentDateTime().toString("yy.MM.dd hh:mm:ss") + ": " + playerName;
+    playerName = QDateTime::currentDateTime().toString("dd.MM.yy hh:mm:ss") + ": " + playerName;
 
     m_playerManager.addPlayer(playerName);
 
