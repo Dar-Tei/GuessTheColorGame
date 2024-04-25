@@ -1,0 +1,68 @@
+{
+    "players": [
+        {
+            "name": "25.04.24 18:06:34: ф",
+            "reference_color": [
+                0,
+                255,
+                0
+            ],
+            "reference_color_name": "Green",
+            "score": "Спробуй ще раз.",
+            "user_color": [
+                0,
+                0,
+                2
+            ],
+            "user_color_name": "Не визначений колір"
+        },
+        {
+            "name": "25.04.24 18:07:53: ф",
+            "reference_color": [
+                255,
+                0,
+                0
+            ],
+            "reference_color_name": "Red",
+            "score": "Спробуй ще раз.",
+            "user_color": [
+                0,
+                0,
+                4
+            ],
+            "user_color_name": "невизначено"
+        },
+        {
+            "name": "25.04.24 18:09:36: ф",
+            "reference_color": [
+                140,
+                160,
+                100
+            ],
+            "reference_color_name": "Khaki",
+            "score": "Спробуй ще раз.",
+            "user_color": [
+                0,
+                0,
+                0
+            ],
+            "user_color_name": "Не визначений колір"
+        },
+        {
+            "name": "25.04.24 18:13:18: a",
+            "reference_color": [
+                128,
+                128,
+                0
+            ],
+            "reference_color_name": "Olive",
+            "score": "Спробуй ще раз.",
+            "user_color": [
+                0,
+                0,
+                0
+            ],
+            "user_color_name": "Невизначений колір"
+        }
+    ]
+}

@@ -1,0 +1,88 @@
+{
+    "colors": [
+        {
+            "blue": 0,
+            "green": 0,
+            "namecolor": "Red",
+            "red": 255
+        },
+        {
+            "blue": 0,
+            "green": 255,
+            "namecolor": "Green",
+            "red": 0
+        },
+        {
+            "blue": 255,
+            "green": 0,
+            "namecolor": "Blue",
+            "red": 0
+        },
+        {
+            "blue": 100,
+            "green": 160,
+            "namecolor": "Khaki",
+            "red": 140
+        },
+        {
+            "blue": 92,
+            "green": 92,
+            "namecolor": "IndianRed",
+            "red": 205
+        },
+        {
+            "blue": 203,
+            "green": 192,
+            "namecolor": "Pink",
+            "red": 255
+        },
+        {
+            "blue": 255,
+            "green": 255,
+            "namecolor": "Cyan",
+            "red": 0
+        },
+        {
+            "blue": 34,
+            "green": 139,
+            "namecolor": "ForestGreen",
+            "red": 34
+        },
+        {
+            "blue": 130,
+            "green": 0,
+            "namecolor": "Indigo",
+            "red": 75
+        },
+        {
+            "blue": 255,
+            "green": 105,
+            "namecolor": "RoyalBlue",
+            "red": 65
+        },
+        {
+            "blue": 0,
+            "green": 0,
+            "namecolor": "Maroon",
+            "red": 128
+        },
+        {
+            "blue": 0,
+            "green": 128,
+            "namecolor": "Olive",
+            "red": 128
+        },
+        {
+            "blue": 0,
+            "green": 128,
+            "namecolor": "Olive",
+            "red": 128
+        },
+        {
+            "blue": 224,
+            "green": 255,
+            "namecolor": "LightYellow",
+            "red": 255
+        }
+    ]
+}
