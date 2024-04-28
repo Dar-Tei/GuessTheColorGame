@@ -1,4 +1,3 @@
-
 #ifndef COLORDATA_H
 #define COLORDATA_H
 
@@ -20,7 +19,7 @@ public:
 
 private:
     QList<QColor> m_colors;
-    QStringList m_colorNames; // Add this line
+    QStringList m_colorNames;
 };
 
-#endif // COLORDATA_H
+#endif

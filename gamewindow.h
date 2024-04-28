@@ -31,7 +31,6 @@ private:
     Ui::GameWindow *ui;
     ColorData m_colorData;
     PlayerManager m_playerManager;
-    int calculateScore(double distance);
     QString m_playerName;
 protected:
     void closeEvent(QCloseEvent *event) override;

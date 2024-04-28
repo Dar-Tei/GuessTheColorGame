@@ -160,7 +160,7 @@ public:
 
     void retranslateUi(QWidget *GameWindow)
     {
-        GameWindow->setWindowTitle(QCoreApplication::translate("GameWindow", "\320\223\321\200\320\260", nullptr));
+        GameWindow->setWindowTitle(QCoreApplication::translate("GameWindow", "\320\222\320\263\320\260\320\264\320\260\320\271 \320\272\320\276\320\273\321\226\321\200", nullptr));
         pushButton_2->setText(QCoreApplication::translate("GameWindow", "\320\257 \320\277\320\260\321\201.", nullptr));
         label_2->setText(QCoreApplication::translate("GameWindow", "R", nullptr));
         pushButton->setText(QCoreApplication::translate("GameWindow", "\320\237\320\265\321\200\320\265\320\262\321\226\321\200 \320\274\320\265\320\275\320\265!", nullptr));

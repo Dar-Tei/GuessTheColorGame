@@ -15,8 +15,6 @@ public:
     explicit UsersScoreWindow(QWidget *parent = nullptr);
     ~UsersScoreWindow();
 
-    void populateListView(const QStringList& playerResults);
-
 private:
     Ui::UsersScoreWindow *ui;
     PlayerManager m_playerManager;

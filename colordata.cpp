@@ -73,7 +73,7 @@ bool ColorData::saveColorsToJson(const QString &filename) const
     QJsonObject jsonObject;
     QJsonArray colorsArray;
 
-    // Add each color to the JSON array
+
     for (int i = 0; i < m_colors.size(); ++i) {
         QJsonObject colorObject;
         colorObject["red"] = m_colors[i].red();
@@ -83,10 +83,8 @@ bool ColorData::saveColorsToJson(const QString &filename) const
         colorsArray.append(colorObject);
     }
 
-    // Add the colors array to the JSON object
     jsonObject["colors"] = colorsArray;
 
-    // Write the JSON object to the file
     QFile file(filename);
     if (!file.open(QIODevice::WriteOnly | QIODevice::Text)) {
         return false;
